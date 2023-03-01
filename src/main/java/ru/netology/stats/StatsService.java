@@ -1,27 +1,20 @@
 package ru.netology.stats;
 
 public class StatsService {
-    public static int sumAmount(long[] sales) {
-        int myArray[] = {
-                8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18
-        };
+    public static int sumAmount(int[] sales) {
         int sum = 0;
         for (int i = 0; i < sales.length; i++) {
-
-            sum = sum + myArray[i];
+            sum = sales[i] + sum;
         }
         System.out.println(sum);
 
         return sum;
     }
 
-    public static int averageSumAmount(long[] sales) {
-        int myArray[] = {
-                8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18
-        };
+    public static int averageSumAmount(int[] sales) {
         int sum = 0;
         for (int i = 0; i < sales.length; i++) {
-            sum = sum + myArray[i];
+            sum = sales[i] + sum;
         }
         int averageSum = sum / 12;
         System.out.println(averageSum);
@@ -29,10 +22,7 @@ public class StatsService {
         return averageSum;
     }
 
-    public static int monthMaximumSales(long[] sales) {
-        int myArray[] = {
-                8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18
-        };
+    public static int monthMaximumSales(int[] sales) {
         int monthMaximum = 0;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] >= sales[monthMaximum]) {
@@ -42,7 +32,7 @@ public class StatsService {
         return monthMaximum + 1;
     }
 
-    public int minSales(long[] sales) {
+    public int minSales(int[] sales) {
         int minMonth = 0; // номер месяца с минимальными продажами среди просмотренных ранее
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] <= sales[minMonth]) { // значит, в рассматриваемом i-м месяце продаж меньше
@@ -52,9 +42,9 @@ public class StatsService {
         return minMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
     }
 
-    public int minSalesMonth(long[] sales) {
+    public int minSalesMonth(int[] sales) {
         int minAverage = 0;
-        double averageSum = 15;
+        int averageSum = 15;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] < averageSum) {
                 minAverage++;
@@ -63,9 +53,9 @@ public class StatsService {
         return minAverage;
     }
 
-    public int maxSalesMonth(long[] sales) {
+    public int maxSalesMonth(int[] sales) {
         int maxAverage = 0;
-        double averageSum = 15;
+        int averageSum = 15;
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > averageSum) {
                 maxAverage++;
